@@ -1,22 +1,35 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-  <title>Minecraft 1.21.1</title>
-  <style>  
-   @font-face {  
-    font-family: 'MinecraftFont';  
-    src: url('mojangles.ttf');  
-   }  
-   .bottom-left {  
-    position: fixed;  
-    bottom: 0;  
-    left: 0;  
-    font-family: 'MinecraftFont';  
-    font-size: 24px;  
-   }  
-  </style>  
-</head>  
-<body>  
-  <div class="bottom-left">Minecraft 1.21.1</div>  
-</body>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 1.21.1</title>
+    <style>
+        @font-face {
+            font-family: 'Mojangles';
+            src: url('mojangles.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            background-color: #282828;
+            font-family: 'Mojangles', sans-serif;
+        }
+
+        .minecraft-text {
+            color: #FFFFFF;
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="minecraft-text">
+        Minecraft 1.21.1
+    </div>
+</body>
 </html>
