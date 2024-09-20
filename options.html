@@ -3,15 +3,23 @@
 <head>  
   <title>Options</title>  
   <style>  
-   @font-face {  
-    font-family: 'Mojangles';  
-    src: url('mojangles.ttf');  
-   }  
-   body {  
-    font-family: 'Mojangles', sans-serif;  
-    margin: 0;  
-    padding: 0;  
-   }  
+     @font-face {
+            font-family: 'Mojangles';
+            src: url('mojangles.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Mojangles', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+    
    .button {  
     background-image: url('button_disabled.png');  
     background-size: 100% 100%;  
