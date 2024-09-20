@@ -10,7 +10,6 @@
             src: url('mojangles.ttf') format('truetype');
         }
 
-        /* Reset body margins */
         body {
             margin: 0;
             padding: 0;
@@ -32,6 +31,15 @@
             height: 100%;
             object-fit: cover; /* Ensures the video covers the whole screen */
             z-index: -1; /* Places the video behind everything */
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px; /* Adjusts the vertical position */
+            left: 50%;
+            transform: translateX(-50%); /* Centers the logo */
+            z-index: 1; /* Ensure it's above the video */
         }
 
         /* Styling for the bottom left and right text */
@@ -74,6 +82,7 @@
             align-items: center;
             font-size: 20px;
             color: white;
+            font-family: 'Mojangles', sans-serif;
         }
 
         /* Half-width buttons container */
@@ -95,6 +104,7 @@
             align-items: center;
             font-size: 20px;
             color: white;
+            font-family: 'Mojangles', sans-serif; /* Apply the Minecraft font */
         }
 
         /* Hover effect for half-width buttons */
@@ -136,6 +146,9 @@
         Your browser does not support the video tag.
     </video>
 
+    <!-- Logo at the top center -->
+    <img src="assets/minecraft/textures/gui/title/minecraft.png" alt="Minecraft Logo" class="logo">
+
     <!-- Button Container to hold all buttons -->
     <div class="button-container">
         <!-- Singleplayer (Disabled) Button -->
@@ -171,7 +184,7 @@
 
     <!-- Bottom right text -->
     <div class="minecraft-text-right">
-        Copyright Mojang AB. Do Not Distribute!
+        Copyright Mojang AB.
     </div>
 
 </body>
