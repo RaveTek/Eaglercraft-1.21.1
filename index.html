@@ -3,18 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft 1.21.1</title>
-    <script src="classes/classesA.js" defer></script>
-    <script src="classes/classesB.js" defer></script>
-    <script src="classes/classesC.js" defer></script>
+    <title>Minceraft 1.21.1</title>
+    <style>
+        @font-face {
+            font-family: 'Mojangles';
+            src: url('mojangles.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Mojangles', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Styling for the video */
+        video#background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the whole screen */
+            z-index: -1; /* Places the video behind everything */
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px; /* Adjusts the vertical position */
+            left: 50%;
+            transform: translateX(-50%); /* Centers the logo */
+            width: 50%;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        /* Styling for the bottom left and right text */
+        .minecraft-text-left {
+            color: #FFFFFF;
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        .minecraft-text-right {
+            color: #FFFFFF;
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        /* Button container to stack the buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Space between buttons */
+            z-index: 1; /* Ensures the buttons are above the video */
+        }
+
+        /* General button styling */
+        .button {
+            width: 500px;
+            height: 50px;
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            font-family: 'Mojangles', sans-serif;
+        }
+
+        /* Half-width buttons container */
+        .half-button-container {
+            display: flex;
+            gap: 10px; /* Space between the half buttons */
+        }
+
+        /* Half-width button styling */
+        .half-button {
+            width: 245px;
+            height: 50px;
+            background-image: url('assets/minecraft/textures/gui/sprites/half_button.png');
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            font-family: 'Mojangles', sans-serif; /* Apply the Minecraft font */
+        }
+
+        /* Hover effect for half-width buttons */
+        .half-button:hover {
+            background-image: url('assets/minecraft/textures/gui/sprites/half_button_hover.png');
+        }
+
+        /* Disabled button */
+        .disabled-button {
+            background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.1/assets/minecraft/textures/gui/sprites/widget/button_disabled.png');
+        }
+
+        /* Multiplayer button */
+        .multiplayer-button {
+            background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.1/assets/minecraft/textures/gui/sprites/widget/button.png');
+        }
+
+        /* Hover effect for the Multiplayer button */
+        .multiplayer-button:hover {
+            background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.1/assets/minecraft/textures/gui/sprites/widget/button_highlighted.png');
+        }
+
+        /* Button text styling */
+        .button span {
+            font-family: 'Mojangles', sans-serif;
+        }
+
+        /* Disabled button should not respond to clicks */
+        .disabled-button:active {
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        // Optional: Initialization or execution code for your scripts
-        document.addEventListener('DOMContentLoaded', () => {
-          alert("Loaded Scripts, Initializing Engine.")
-            alert("Content Acquiring Soon")
-        });
+
+    <!-- Background video -->
+    <video id="background-video" autoplay muted loop>
+        <source src="assets/minecraft/videos/panorama.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo at the top center -->
+    <img src="minerlol.png" alt="Minecraft Logo" class="logo">
+
+    <!-- Button Container to hold all buttons -->
+    <div class="button-container">
+        <!-- Singleplayer (Disabled) Button -->
+        <button class="button disabled-button">
+            <span>Singleplayer</span>
+        </button>
+
+        <!-- Multiplayer Button -->
+   <a href="multiplayer.html" style="text-decoration: none;" onclick="playClickSound()">
+            <button class="button multiplayer-button">
+                <span>Multiplayer</span>
+            </button>
+        </a>
+
+        <!-- Minecraft Realms (Disabled) Button -->
+        <button class="button disabled-button">
+            <span>Minecraft Realms</span>
+        </button>
+
+        <!-- Two half-width buttons below Minecraft Realms -->
+        <a href="options.html" style="text-decoration: none;">
+            <button class="half-button" onclick="playClickSound()">
+                <span>Options</span>
+            </button>
+        </a>
+            <button class="half-button">
+                <span>Quit</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom left text -->
+    <div class="minecraft-text-left">
+        Minecraft 1.21.1
+    </div>
+
+    <!-- Bottom right text -->
+    <div class="minecraft-text-right">
+        Copyright Mojang AB. Do Not Distribute!
+    </div>
+
+    
+        <script>
+        function playClickSound() {
+            const sound = new Audio('click.ogg');
+            sound.play();
+        }
     </script>
+    
 </body>
 </html>

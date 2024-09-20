@@ -1,0 +1,73 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>Options</title>  
+  <style>  
+   @font-face {  
+    font-family: 'Mojangles';  
+    src: url('mojangles.ttf');  
+   }  
+   body {  
+    font-family: 'Mojangles', sans-serif;  
+    margin: 0;  
+    padding: 0;  
+   }  
+   .button {  
+    background-image: url('assets/textures/gui/sprites/button.png');  
+    background-size: 100% 100%;  
+    width: 200px;  
+    height: 50px;  
+    margin: 10px;  
+    display: inline-block;  
+    text-align: center;  
+    padding-top: 15px;  
+    font-size: 18px;  
+    cursor: pointer;  
+   }  
+    #background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the whole screen */
+            z-index: -1; /* Places the video behind everything */
+        }
+   #done-button {  
+    position: absolute;  
+    bottom: 20px;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    background-image: url('assets/minecraft/textures/gui/sprites/button.png');  
+    background-size: 100% 100%;  
+    width: 200px;  
+    height: 50px;  
+    text-align: center;  
+    padding-top: 15px;  
+    font-size: 18px;  
+    cursor: pointer;  
+   }  
+   #done-button:hover {  
+    background-image: url('assets/minecraft/textures/gui/sprites/button_hover.png');  
+   }  
+  </style>  
+</head>  
+<body>  
+  <video id="background-video" autoplay loop>  
+   <source src="assets/minecraft/videos/panorama.mp4" type="video/mp4">  
+  </video>  
+  <div style="text-align: center; margin-top: 100px;">  
+   <div class="button">Skin Customization...</div>  
+   <div class="button">Music and Sounds...</div>  
+   <div class="button">Video Settings...</div>  
+   <div class="button">Controls...</div>  
+   <div class="button">Language...</div>  
+   <div class="button">Chat Settings...</div>  
+   <div class="button">Resource Packs...</div>  
+   <div class="button">Accessibility Settings...</div>  
+   <div class="button">Telemetry Data</div>  
+   <div class="button">Credits and Attribution...</div>  
+  </div>  
+  <div id="done-button" onclick="location.href='index.html'">Done</div>  
+</body>  
+</html>
