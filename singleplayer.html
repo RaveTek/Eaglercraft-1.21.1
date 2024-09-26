@@ -70,7 +70,7 @@
         .button {
             background-size: 100% 100%; /* Adjust button texture size */
             border: none;
-            width: 200px; /* Adjust button width */
+            width: 450px; /* Adjust button width */
             height: 60px; /* Adjust button height */
             cursor: pointer;
             font-family: 'Mojangles', sans-serif; /* Fallback font */
@@ -109,16 +109,16 @@
             color: white; /* Adjust text color as needed */
         }
         .half-button-left {
-            background: url('assets/minecraft/textures/sprites/button_half_disabled.png') no-repeat center center;
+            background: url('assets/minecraft/textures/sprites/half_button_disabled.png') no-repeat center center;
             background-size: cover; /* Set to cover for proper scaling */
         }
         .half-button-right {
-            background: url('assets/minecraft/textures/sprites/button_half.png') no-repeat center center;
+            background: url('assets/minecraft/textures/sprites/half_button.png') no-repeat center center;
             background-size: cover; /* Set to cover for proper scaling */
             transition: background 0.3s; /* Smooth transition for hover effect */
         }
         .half-button-right:hover {
-            background: url('assets/minecraft/textures/sprites/button_half_hover.png') no-repeat center center;
+            background: url('assets/minecraft/textures/sprites/half_button_hover.png') no-repeat center center;
             background-size: cover; /* Ensure hover state has the same size */
         }
     </style>
@@ -134,7 +134,7 @@
     <div class="text">Select World</div>
     
     <div class="button-container">
-        <button class="button button-left" onclick="location.href='index.html';">Play Selected World</button>
+        <button class="button button-left"">Play Selected World</button>
         <button class="button button-right" onclick="location.href='create_world.html';">Create New World</button>
     </div>
     
