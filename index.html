@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Mojangles';
-            src: url('mojangles.ttf') format('truetype');
+            src: url('https://raw.githubusercontent.com/EaglerDevs/Eaglercraft-1.21.1/main/mojangles.ttf') format('truetype');
         }
 
         body {
@@ -143,12 +143,12 @@
 
     <!-- Background video -->
     <video id="background-video" autoplay muted loop>
-        <source src="assets/minecraft/videos/panorama.mp4" type="video/mp4">
+        <source src="https://github.com/EaglerDevs/Eaglercraft-1.21.1/raw/refs/heads/main/assets/minecraft/videos/panorama.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <!-- Logo at the top center -->
-    <img src="minerlol.png" alt="Minecraft Logo" class="logo">
+    <img src="https://raw.githubusercontent.com/EaglerDevs/Eaglercraft-1.21.1/refs/heads/main/minerlol.png" alt="Minecraft Logo" class="logo">
 
     <!-- Button Container to hold all buttons -->
     <div class="button-container">
@@ -158,7 +158,7 @@
         </button>
 
         <!-- Multiplayer Button -->
-   <a href="multiplayer.html" style="text-decoration: none;" onclick="playClickSound()">
+   <a href="*" style="text-decoration: none;" onclick="playClickSound()">
             <button class="button multiplayer-button">
                 <span>Multiplayer</span>
             </button>
@@ -170,14 +170,11 @@
         </button>
 
         <!-- Two half-width buttons below Minecraft Realms -->
-        <a href="options.html" style="text-decoration: none;">
-            <button class="half-button" onclick="playClickSound()">
+        <a href="*" style="text-decoration: none;">
+            <button class="button multiplayer-button">
                 <span>Options</span>
             </button>
         </a>
-            <button class="half-button">
-                <span>Edit Profile</span>
-            </button>
         </div>
     </div>
 
@@ -194,7 +191,7 @@
     
         <script>
         function playClickSound() {
-            const sound = new Audio('click.ogg');
+            const sound = new Audio('https://github.com/EaglerDevs/Eaglercraft-1.21.1/raw/refs/heads/main/click.ogg');
             sound.play();
         }
     </script>

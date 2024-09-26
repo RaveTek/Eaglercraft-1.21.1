@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minceraft 1.21.1</title>
+    <style>
+        @font-face {
+            font-family: 'Mojangles';
+            src: url('Mojangles.ttf') format('truetype');
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/minecraft/singleplayer_overlay.png') no-repeat center center;
+            background-size: cover;
+            opacity: 0.7; /* Adjust opacity as needed */
+        }
+        .text {
+            position: absolute;
+            top: 20px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Mojangles', sans-serif; /* Fallback font */
+            font-size: 48px; /* Adjust font size as needed */
+            color: white; /* Adjust text color as needed */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better readability */
+        }
+        .button-container {
+            position: absolute;
+            bottom: 100px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+        .button {
+            background-size: cover;
+            border: none;
+            width: 200px; /* Adjust button width */
+            height: 60px; /* Adjust button height */
+            cursor: pointer;
+            font-family: 'Mojangles', sans-serif; /* Fallback font */
+            font-size: 24px; /* Adjust font size as needed */
+            color: white; /* Adjust text color as needed */
+        }
+        .button-left {
+            background: url('button_disabled.png') no-repeat center center;
+        }
+        .button-right {
+            background: url('button.png') no-repeat center center;
+            transition: background 0.3s; /* Smooth transition for hover effect */
+        }
+        .button-right:hover {
+            background: url('button_highlighted.png') no-repeat center center;
+        }
+        .half-button-container {
+            position: absolute;
+            bottom: 30px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+        .half-button {
+            background-size: cover;
+            border: none;
+            width: 90px; /* Half button width */
+            height: 60px; /* Adjust button height */
+            cursor: pointer;
+            font-family: 'Mojangles', sans-serif; /* Fallback font */
+            font-size: 20px; /* Adjust font size as needed */
+            color: white; /* Adjust text color as needed */
+        }
+        .half-button-left {
+            background: url('button_half_disabled.png') no-repeat center center;
+        }
+        .half-button-right {
+            background: url('button_half.png') no-repeat center center;
+            transition: background 0.3s; /* Smooth transition for hover effect */
+        }
+        .half-button-right:hover {
+            background: url('button_half_hover.png') no-repeat center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="assets/minecraft/videos/panorama.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="overlay"></div>
+    <div class="text">Select World</div>
+    
+    <div class="button-container">
+        <button class="button button-left" onclick="location.href='index.html';">Play Selected World</button>
+        <button class="button button-right" onclick="location.href='create_world.html';">Create New World</button>
+    </div>
+    
+    <div class="half-button-container">
+        <button class="half-button half-button-left" onclick="location.href='edit.html';">Edit</button>
+        <button class="half-button half-button-left">Delete</button>
+        <button class="half-button half-button-left">Re-Create</button>
+        <button class="half-button half-button-right" onclick="location.href='index.html';">Back</button>
+    </div>
+</body>
+</html>

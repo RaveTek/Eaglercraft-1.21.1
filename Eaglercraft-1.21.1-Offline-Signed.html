@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eaglercraft 1.21.1</title>
+    <style>
+        @font-face {
+            font-family: 'Mojangles';
+            src: url('https://raw.githubusercontent.com/EaglerDevs/Eaglercraft-1.21.1/main/mojangles.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Mojangles', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Styling for the video */
+        video#background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the whole screen */
+            z-index: -1; /* Places the video behind everything */
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px; /* Adjusts the vertical position */
+            left: 50%;
+            transform: translateX(-50%); /* Centers the logo */
+            width: 50%;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        /* Styling for the bottom left and right text */
+        .minecraft-text-left {
+            color: #FFFFFF;
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        .minecraft-text-right {
+            color: #FFFFFF;
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1; /* Ensure it's above the video */
+        }
+
+        /* Button container to stack the buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Space between buttons */
+            z-index: 1; /* Ensures the buttons are above the video */
+        }
+
+        /* General button styling */
+        .button {
+            width: 500px;
+            height: 50px;
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            font-family: 'Mojangles', sans-serif;
+        }
+
+        /* Half-width buttons container */
+        .half-button-container {
+            display: flex;
+            gap: 10px; /* Space between the half buttons */
+        }
+
+        /* Half-width button styling */
+        .half-button {
+            width: 245px;
+            height: 50px;
+            background-image: url('assets/minecraft/textures/gui/sprites/half_button.png');
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            font-family: 'Mojangles', sans-serif; /* Apply the Minecraft font */
+        }
+
+        /* Hover effect for half-width buttons */
+        .half-button:hover {
+            background-image: url('assets/minecraft/textures/gui/sprites/half_button_hover.png');
+        }
+
+        /* Disabled button */
+        .disabled-button {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAAAAADtzy0WAAAETUlEQVR42u1VCW7kSAzbx0y7SzwkO5n/v20XUrmN+cEiGCII4LJbB0mV/vk5IEPOlEpBDVLCAUmQ8IoFyWUN6jslylmSS2EcUEnylWr4zLIlHEfaGlgpIMiOIfn89pwL+4Mb5QDYv1CHdDo1sEsb+4wB6b9GNCD8xAMWiOyTNMigxFi7N4txeuohsg/nDws6S0BI6P6lVEADSLnYP0BEdx9T8CAAlXxZSluQyFNr6uLuKlMS69SGC8exFZEwsWrSp6wHZLyXheWbcCFWrKCExdEQ2frIlxZaUIJihFqU63JHFi2ESzcYVA2RchlvqH8Nl7EQFLZoqeDW7bIG+zliFAHnGWAcTSuOxZsnYtJOIGC+EEVQ6l4MSHWWFuQSOOpxCh0xbkuVR8IEQG0ksORN8EinSi6o21pQCtOGi5AdZGaCX3ZhrWkkQ7m5zY8YkIG1liovS4SEpmoFcUC+JUT7y/md0hwzuvppgasVKlHp01wrtrNnNMeQ7RtyFw5Nrw8FDVqBNwgEAtg5GCDbWqPQThvaOiuOkN0c2bXfW4ZKygh0lZNUfahSiP0DIDjnipbJErBbBAF9kJJb1qtKiFZjSU3Ya2Fh5NWWPw6M0wI9zOxwP+nWArgnNoUANYDQqkG+FB0vKdHstgR2ZwQ1FxoWNLAGACZbIIgjVkcpAxDWApwioHxqezPTj68aC/vSjCnrdYC+hnXTp9Zz/VKDmg5baqTPkqpsn5cdAFL5+yoBYg01BNpk3ukHk3XLmhrEAgRl9QudlvztTgrAN/nSzU8bTVWVvqzGtOQ9WLrP3++2li/nNePtxH6JcDcIPeqbYWnbSJ/p2PFA6Krrd83BBkOn5UpBnAlNLmbXWimEOVQaZXlamfWEF3B0i4FmV1sT8I8pQMRWRBaCwjF7zO1NSteXx58DyHrg+YftZPcTY1EIpQuQsqwNUGUHSp0D/WUogsIT0fedRkK5CjJ002mXEBjTYj7KprZ2I5bGtcehEnKsCalmTP6AVWr4K8vuNnM2MaXKFCzF7LDejcy11jTMoIC9oj1iW27HCOg67LpqbAn5u1yV8vgKix/3LQjRj31r2dtH6LNpOTXkEEpZ5LkQIWjGZ6+KjjNAaON+D60XVG4qqQbeeMPbEq6px1jxwhzO0LW95yEVRAAIRRMF+ssuUfjV4iOO1Xsksz5jykw9wz+u7Frxekr+LBo9apWAKEtYmhBpjz8hHLpqK9j78Thit1GlhaAR9yILDBPiTpT5/dWpchIpIXMBYH8IX7Yfa0m8uaRSRPpKgTfFgny60t7PrXZp22NCgLuTzABB7uviiAVvFirvDeBm4nh/BgwzHQil5Etbpt0i2kuIIAPI04J8lZ8ZAUS8oEzAvy0slaBySXgvQMeHpvVrpbCYpzfzNxGzzXscJ/YcS/XRMed4+D4w78b9z7RfNZXzdmwsDlcKdBUmqklYUKPsv5v9f7fZfwz+BY4PYAPvfJmoAAAAAElFTkSuQmCC');
+        }
+
+        /* Multiplayer button */
+        .multiplayer-button {
+            background-image: url('data:image/png;base64,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');
+        }
+
+        /* Hover effect for the Multiplayer button */
+        .multiplayer-button:hover {
+            background-image: url('data:image/png;base64,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');
+        }
+
+        /* Button text styling */
+        .button span {
+            font-family: 'Mojangles', sans-serif;
+        }
+
+        /* Disabled button should not respond to clicks */
+        .disabled-button:active {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background video -->
+    <video id="background-video" autoplay muted loop>
+        <source src="https://github.com/EaglerDevs/Eaglercraft-1.21.1/raw/refs/heads/main/assets/minecraft/videos/panorama.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo at the top center -->
+    <img src="https://raw.githubusercontent.com/EaglerDevs/Eaglercraft-1.21.1/refs/heads/main/minerlol.png" alt="Minecraft Logo" class="logo">
+
+    <!-- Button Container to hold all buttons -->
+    <div class="button-container">
+        <!-- Singleplayer (Disabled) Button -->
+        <button class="button disabled-button">
+            <span>Singleplayer</span>
+        </button>
+
+        <!-- Multiplayer Button -->
+   <a href="" style="text-decoration: none;" onclick="playClickSound()">
+            <button class="button multiplayer-button">
+                <span>Multiplayer</span>
+            </button>
+        </a>
+
+        <!-- Minecraft Realms (Disabled) Button -->
+        <button class="button disabled-button">
+            <span>Minecraft Realms</span>
+        </button>
+
+     
+        <a href="" style="text-decoration: none;">
+            <button class="button multiplayer-button">
+                <span>Options</span>
+            </button>
+        </a>
+        </div>
+
+    <!-- Bottom left text -->
+    <div class="minecraft-text-left">
+        Minecraft 1.21.1
+    </div>
+
+    <!-- Bottom right text -->
+    <div class="minecraft-text-right">
+        Signed By Ravetek. Copyright Mojang AB!
+    </div>
+
+    
+        <script>
+        function playClickSound() {
+            const sound = new Audio('https://raw.githubusercontent.com/EaglerDevs/Eaglercraft-1.21.1/raw/refs/heads/main/click.ogg');
+            sound.play();
+        }
+    </script>
+    
+</body>
+</html>
