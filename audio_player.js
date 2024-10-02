@@ -1,9 +1,11 @@
-       // Get the audio element
+ // Get the audio element
         const audio = document.getElementById('background-audio');
 
-        // Play audio when the page loads
+        // Attempt to play the audio on page load
         window.onload = function() {
-            audio.play();
+            audio.play().catch(function(error) {
+                console.log('Autoplay was prevented:', error);
+            });
         };
 
 
