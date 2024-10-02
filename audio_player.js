@@ -1,6 +1,6 @@
 
     // Path to the single audio file
-    const audioFile = "audio1.mp3";  // minecraft.mp3
+    const audioFile = "https://github.com/AR-DEV-1/Eaglercraft-1.21.1/blob/main/assets/minecraft/sounds/title_screen/Minecraft.mp3";  // minecraft.mp3
 
     // Create an audio element and set its attributes
     const audio = new Audio(audioFile);
