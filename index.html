@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minceraft 1.21.1</title>
-    <meta property="og:image" content="icon_256x256.png" />
+  <link rel="icon" href="icon.png">
    <script type="text/javascript" src="fix-webm-duration.js"></script>
-   <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classesABC.js"></script> 
-   <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classes/classesA.js"></script>
-   <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classes/classesB.js"></script> 
-   <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classes/classesC.js"></script> 
+   <script type="text/javascript" src="classesABC.js"></script> 
+   <script type="text/javascript" src="classes/classesA.js"></script>
+   <script type="text/javascript" src="classes/classesB.js"></script> 
+   <script type="text/javascript" src="classes/classesC.js"></script> 
     <style>
         @font-face {
             font-family: 'Mojangles';
@@ -147,13 +147,13 @@
     </style>
 </head>
 <body>
-   <audio autoplay loop muted>
+   <audio autoplay loop>
   <source src="https://github.com/AR-DEV-1/Eaglercraft-1.21.1/blob/main/assets/minecraft/sounds/title_screen/Minecraft.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
 
 <script>
-  // Unmute the audio when the user interacts with the page (optional)
+  // Unmute the audio when the user interacts with the page
   document.addEventListener('click', function() {
     var audio = document.querySelector('audio');
     audio.muted = false;  // Unmute after interaction
