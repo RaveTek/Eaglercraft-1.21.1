@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minceraft 1.21.1</title>
-    <meta property="og:image" content="icon_256x256.png" />
-   <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/fix-webm-duration/refs/heads/main/fix-webm-duration.js"></script>
+    <meta property="og:image" content="/icon_256x256.png" />
+   <script type="text/javascript" src="/fix-webm-duration.js"></script>
    <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classesABC.js"></script> 
    <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classes/classesA.js"></script>
    <script type="text/javascript" src="https://raw.githubusercontent.com/AR-DEV-1/Eaglercraft-1.21.1/refs/heads/main/classes/classesB.js"></script> 
@@ -147,9 +147,19 @@
     </style>
 </head>
 <body>
-       <audio autoplay loop>
-  <source src="assets/minecraft/sounds/title_screen/Minecraft.mp3" type="audio/mp3">
- </audio>           
+   <audio autoplay loop muted>
+  <source src="/assets/minecraft/sounds/title_screen/Minecraft.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Unmute the audio when the user interacts with the page (optional)
+  document.addEventListener('click', function() {
+    var audio = document.querySelector('audio');
+    audio.muted = false;  // Unmute after interaction
+  });
+</script>
+ 
 
     <!-- Background video -->
     <video id="background-video" autoplay muted loop>
