@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minceraft 1.21.1</title>
+    <style>
+        @font-face {
+            font-family: 'Mojangles';
+            src: url('mojangles.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Mojangles', sans-serif;
+            background-color: #282828; /* Simulating a dark Minecraft-like UI */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu {
+            text-align: center;
+            background-color: #3b3b3b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #555;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Add background images to buttons */
+        #createWorldBtn {
+            background-image: url('textures/create_world_texture.png');
+        }
+
+        #loadEPKBtn {
+            background-image: url('textures/load_epk_texture.png');
+        }
+
+        #importVanillaBtn {
+            background-image: url('textures/import_vanilla_texture.png');
+        }
+
+        #cancelBtn {
+            background-image: url('textures/cancel_texture.png');
+        }
+
+        button:hover {
+            opacity: 0.8; /* Slight hover effect */
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <button id="createWorldBtn">Create New World</button>
+    <button id="loadEPKBtn">Load EPK File</button>
+    <button id="importVanillaBtn">Import Vanilla World</button>
+    <button id="cancelBtn">Cancel</button>
+</div>
+
+<script>
+    // Event handlers for buttons
+    document.getElementById('createWorldBtn').addEventListener('click', function() {
+        alert('Create New World clicked!');
+    });
+
+    document.getElementById('loadEPKBtn').addEventListener('click', function() {
+        alert('Load EPK File clicked!');
+    });
+
+    document.getElementById('importVanillaBtn').addEventListener('click', function() {
+        alert('Import Vanilla World clicked!');
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        window.location.href = 'menu.html'; // Redirect to menu.html
+    });
+</script>
+
+</body>
+</html>
