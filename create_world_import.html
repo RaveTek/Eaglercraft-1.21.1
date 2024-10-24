@@ -36,26 +36,29 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
+            transition: background-image 0.3s ease; /* Smooth transition for background image */
         }
 
         /* Add background images to buttons */
         #createWorldBtn {
-            background-image: url('textures/create_world_texture.png');
+            background-image: url('https://raw.githubusercontent.com/RaveTek/Eaglercraft-1.21.1/refs/heads/main/button.png');
         }
 
         #loadEPKBtn {
-            background-image: url('textures/load_epk_texture.png');
+            background-image: url('https://raw.githubusercontent.com/RaveTek/Eaglercraft-1.21.1/refs/heads/main/button_disabled.png');
         }
 
         #importVanillaBtn {
-            background-image: url('textures/import_vanilla_texture.png');
+            background-image: url('https://raw.githubusercontent.com/RaveTek/Eaglercraft-1.21.1/refs/heads/main/button_disabled.png');
         }
 
         #cancelBtn {
-            background-image: url('textures/cancel_texture.png');
+            background-image: url('https://raw.githubusercontent.com/RaveTek/Eaglercraft-1.21.1/refs/heads/main/button.png');
         }
 
+        /* Hover effects */
         button:hover {
+            background-image: url('https://raw.githubusercontent.com/RaveTek/Eaglercraft-1.21.1/refs/heads/main/button_highlighted.png');
             opacity: 0.8; /* Slight hover effect */
         }
     </style>
@@ -72,15 +75,15 @@
 <script>
     // Event handlers for buttons
     document.getElementById('createWorldBtn').addEventListener('click', function() {
-        alert('Create New World clicked!');
+        window.location.href = 'create_world.html'; // Redirect to create_world.html
     });
 
     document.getElementById('loadEPKBtn').addEventListener('click', function() {
-        alert('Load EPK File clicked!');
+    
     });
 
     document.getElementById('importVanillaBtn').addEventListener('click', function() {
-        alert('Import Vanilla World clicked!');
+
     });
 
     document.getElementById('cancelBtn').addEventListener('click', function() {
